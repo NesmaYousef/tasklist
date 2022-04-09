@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+/*
+
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -43,7 +45,7 @@ Route::get('/tasks', function () {
     'task1',
     'task2',
     'task3'];
-*/
+*//*
   $tasks = [
     '1'=>'task1',
     '2'=>'task2',
@@ -60,3 +62,10 @@ Route::get('/show/{id}', function ($id) {
  $task = $tasks[$id];
 return view ('show',compact('task'));
 });
+*/
+//new
+
+Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/task/{id}', [TaskController::class, 'show'])->name('tasks.show');
+Route::post('/task/store', [TaskController::class, 'store'])->name('tasks.store');
+Route::delete('task/destroy/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
