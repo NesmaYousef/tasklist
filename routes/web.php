@@ -69,3 +69,5 @@ Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
 Route::get('/task/{id}', [TaskController::class, 'show'])->name('tasks.show');
 Route::post('/task/store', [TaskController::class, 'store'])->name('tasks.store');
 Route::delete('task/destroy/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+Route::put('edit/{id}',[TaskController::class, 'edit']);
+Route::patch('update/{id}',[TaskController::class, 'update']);
