@@ -10,15 +10,15 @@
         <div class="panel-body">
             <!-- Display Validation Errors -->
 
-@if ($errors->any())
-<div class="alert alert-danger">
+    @if ($errors->any())
+<   div class="alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
         @endforeach
     </ul>
-</div>
-@endif
+    </div>
+    @endif
 @if (isset($task))
                 <!-- Edit Task Form -->
                 <form action="{{url('update/'.$task->id)}}" method="POST" class="form-horizontal">

@@ -9,6 +9,7 @@ class TaskController extends Controller
 {
     public function index(){
         /* note: I used both query builder and eloquent.*/
+        
        /***  $tasks = DB::table('tasks')->get();*/
        //alphabetical order
        $tasks = Task::orderBy('name')->get()->all();
