@@ -18,8 +18,8 @@ class TaskController extends Controller
     }
 
     public function show($id){
-        $task = DB::table('tasks')->find($id);
-
+        /*$task = DB::table('tasks')->find($id);*/
+        $task = Task :: find($id);
         // return $tasks;
         return view('tasks.show', compact('task'));
     }
@@ -43,6 +43,7 @@ class TaskController extends Controller
 
         return redirect()->back();
     }
+    
     public function edit($id){
       /*  $tasks = DB::table('tasks')->get();
         $task = DB::table('tasks')->find($id);*/
