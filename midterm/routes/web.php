@@ -19,3 +19,5 @@ Route::get('/', [ProductController::class, 'index'])->name('products.index');
 Route::get('create', [ProductController::class, 'create']);
 Route::post('store', [ProductController::class, 'store']);
 Route::get('destroy/{id}', [ProductController::class, 'destroy']);
+Route::put('edit/{id}',[ProductController::class, 'edit']);
+Route::patch('update/{id}',[ProductController::class, 'update']);
