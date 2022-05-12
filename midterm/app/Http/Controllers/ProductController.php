@@ -63,22 +63,8 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -93,4 +79,23 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->back();
     }
+    public function edit($id){
+        /*  $tasks = DB::table('tasks')->get();
+          $task = DB::table('tasks')->find($id);*/
+          $products = Product::orderBy('name')->get()->all();
+          //$tasks = Task :: all()->sortBy("name");
+          $product = Product::find($id);
+
+          return view('tasks.index', compact('task', 'tasks'));
+      }
+
+      public function update(Request $request, $id){
+          /*$task = DB::table('tasks')->where('id',$id)->update([
+              'name' => $request->name
+          ]);*/
+          $product= Product :: where('id',$id)->update(['Name' => $request->Name]);
+
+          return redirect('');
+      }
+
 }
